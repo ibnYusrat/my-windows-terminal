@@ -1,13 +1,3 @@
-Write-Host "Installing Windows Terminal.."
-winget install 9N0DX20HK701 -s msstore --accept-package-agreements --accept-source-agreements
-
-Write-Host "Installing PowerShell:"
-winget install 9MZ1SNWT0N5D -s msstore --accept-package-agreements --accept-source-agreements
-
-Write-Host "Installing oh-my-posh from Microsoft Store"
-winget install oh-my-posh -s msstore --accept-package-agreements --accept-source-agreements
-winget install JanDeDobbeleer.OhMyPosh -s winget --accept-package-agreements --accept-source-agreements
-
 Write-Host "Initialize oh-my-posh"
 oh-my-posh init pwsh | Invoke-Expression
 
