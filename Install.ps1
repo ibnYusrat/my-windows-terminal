@@ -44,16 +44,15 @@ Add-Content -Path $PROFILE "oh-my-posh init pwsh --config '$env:POSH_THEMES_PATH
 Add-Content -Path $PROFILE -value "Set-Alias open explorer.exe"
 
 Write-Host "Update Windows Terminal Config..";
-$PowerShellJSONPath = "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
-$PowerShellSettings = Get-Content $PowerShellJSONPath -raw | ConvertFrom-Json
+$PowerShellPathToJSON = "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+
+$PowerShellSettings = Get-Content $PowerShellPathToJSON -raw | ConvertFrom-Json
 $PowerShellProfileId = "";
+
 $PowerShellSettings.profiles.list | % {
-    if ($_.name -eq 'PowerShell')
-    {
-        $_.font = {
-            face: "MesloLGS NF"
-        }
+    if ($_.name -eq 'PowerShell')  {
+        $_.font = {  face: "MesloLGS NF"  }
         $_.useAcrylic = $True
         $_.opacity = 60
         $PowerShellProfileId = $_.guid
@@ -63,9 +62,7 @@ $PowerShellSettings.profiles.list | % {
 $PowerShellSettings.defaultProfile = $PowerShellProfileId;
 $PowerShellSettings.useAcrylicInTabRow = $True;
 
-$PowerShellSettings | ConvertTo-Json -depth 32| set-content $PowerShellJSONPath
-
-Write-Output $PowerShellSettings
+$PowerShellSettings | ConvertTo-Json -depth 5 | set-content $PowerShellPathToJSON
 
 Clear-Host;
 
