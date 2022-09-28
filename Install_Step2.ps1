@@ -41,7 +41,7 @@ $PowerShellSettings = Get-Content $PowerShellPathToJSON -raw | ConvertFrom-Json
 $PowerShellProfileId = "";
 $customfont =@"
 {
-    face : 'MesoLGS NF'
+    face : 'MesloLGS NF'
 }
 "@
 
@@ -59,9 +59,9 @@ $PowerShellSettings | Add-Member -Name "useAcrylicInTabRow" -Value $True -Member
 
 $PowerShellSettings | ConvertTo-Json -depth 5 | set-content $PowerShellPathToJSON
 
-Write-Host "If everything went well, you should be good to go. Just exist Windows PowerShell and launch Windows Terminal from the start menu.";
+Write-Host "Hopefully all the settings have been applied correctly. Just exit Terminal one last time and launch it again.";
 Write-Host "";
 
-Write-Host -NoNewLine 'Press any key to exit Windows Powershell...';
+Write-Host -NoNewLine 'Press any key to continue...';
 $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
 exit
