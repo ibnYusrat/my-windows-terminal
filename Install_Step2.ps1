@@ -39,22 +39,25 @@ $PowerShellPathToJSON = "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8w
 
 $PowerShellSettings = Get-Content $PowerShellPathToJSON -raw | ConvertFrom-Json
 $PowerShellProfileId = "";
+$customfont =@"
+{
+    face : 'MesoLGS NF'
+}
+"@
 
 $PowerShellSettings.profiles.list | % {
     if ($_.name -eq 'PowerShell')  {
-        $_.font = {  face: "MesloLGS NF"  }
-        $_.useAcrylic = $True
-        $_.opacity = 60
+        $_ | Add-Member -Name "font" -Value (ConvertFrom-Json $customfont) -MemberType NoteProperty -Force
+        $_ | Add-Member -Name "useAcrylic " -Value $True -MemberType NoteProperty -Force
+        $_ | Add-Member -Name "opacity" -Value 60 -MemberType NoteProperty -Force
         $PowerShellProfileId = $_.guid
     }
 }
 
 $PowerShellSettings.defaultProfile = $PowerShellProfileId;
-$PowerShellSettings.useAcrylicInTabRow = $True;
+$PowerShellSettings | Add-Member -Name "useAcrylicInTabRow" -Value $True -MemberType NoteProperty -Force;
 
 $PowerShellSettings | ConvertTo-Json -depth 5 | set-content $PowerShellPathToJSON
-
-Clear-Host;
 
 Write-Host "If everything went well, you should be good to go. Just exist Windows PowerShell and launch Windows Terminal from the start menu.";
 Write-Host "";
