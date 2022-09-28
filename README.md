@@ -1,6 +1,6 @@
 ## My Windows Terminal
 ![](images/New-Prompt.png)
-This repository two install scripts, i-e `Install_Step1.ps1` and `Install_Step2.ps1`. These scripts will automatically setup everything that needs to be done to get the fancy prompt. 
+This repository has two install scripts, i-e `Install_Step1.ps1` and `Install_Step2.ps1`. These scripts will automatically setup everything that needs to be done to get the fancy prompt. 
 You don't need to run with elevated privileges (`Run as Administrator`) but before running the script,
 you will need to allow execution of scripts by setting the execution policy to `RemoteSigned` with the following command -- and this ONLY works if you run Windows PowerShell as Administrator:
 
