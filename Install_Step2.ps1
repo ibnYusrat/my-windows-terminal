@@ -54,8 +54,6 @@ $PowerShellSettings.useAcrylicInTabRow = $True;
 
 $PowerShellSettings | ConvertTo-Json -depth 5 | set-content $PowerShellPathToJSON
 
-Clear-Host;
-
 Write-Host "If everything went well, you should be good to go. Just exist Windows PowerShell and launch Windows Terminal from the start menu.";
 Write-Host "";
 
