@@ -1,12 +1,12 @@
 ## My Windows Terminal
 ![](images/New-Prompt.png)
-This repository has two install scripts, i-e `Install_Step1.ps1` and `Install_Step2.ps1`. These scripts will automatically setup everything that needs to be done to get the fancy prompt. 
-You don't need to run with elevated privileges (`Run as Administrator`) but before running the script,
-you will need to allow execution of scripts by setting the execution policy to `RemoteSigned` with the following command -- and this ONLY works if you run Windows PowerShell as Administrator:
+This repository has two install scripts, i-e `Install_Step1.ps1` and `Install_Step2.ps1`. These scripts will automatically setup everything that needs to be done to get the fancy pants PowerShell Prompt. 
+You don't need to run these scripts with elevated privileges (`Run as Administrator`) but before running the script,
+you will need to allow execution of scripts by setting the execution policy to `RemoteSigned` with the following command -- and this ONLY works if you run `Windows PowerShell` as an Administrator:
 
 `Set-ExecutionPolicy RemoteSigned`
 
-After running the above command, you should exist `Windows Powershell` and launch a regular Windows Powershell session and navigate to the place where you cloned this repository. Execute the `Install_Step.ps1` by simply writing:
+After running the above command, you should exit `Windows Powershell` which you launched as an administrator and launch a regular `Windows Powershell` session and navigate to the place where you cloned this repository. Execute the `Install_Step.ps1` by simply writing:
 
 `./Install_Step1.ps1` 
 
