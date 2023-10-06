@@ -32,6 +32,7 @@ if (!(Test-Path $PROFILE))
 
 Add-Content -Path $PROFILE "oh-my-posh init pwsh --config '$env:POSH_THEMES_PATH\hunk.omp.json' | Invoke-Expression"
 Add-Content -Path $PROFILE -value "Set-Alias open explorer.exe"
+Add-Content -Path $PROFILE -value "Set-Alias cat type"
 
 Write-Host "Update Windows Terminal Config..";
 
