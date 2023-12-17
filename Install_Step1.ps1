@@ -9,7 +9,12 @@ winget install oh-my-posh -s msstore --accept-package-agreements --accept-source
 winget install JanDeDobbeleer.OhMyPosh -s winget --accept-package-agreements --accept-source-agreements
 
 Write-Host "Installing jq"
-winget install jqlang.jq
+winget install jqlang.jq --accept-source-agreements
+
+
+Write-Host "Installing Lua"
+winget install DEVCOM.Lua --accept-source-agreements
+
 
 Write-Host "Please exit Windows PowerShell and Launch Windows Terminal from Start Menu. Then Run Install_Step2 to continue the setup.";
 

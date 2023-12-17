@@ -32,7 +32,15 @@ if (!(Test-Path $PROFILE))
 
 Add-Content -Path $PROFILE "oh-my-posh init pwsh --config '$env:POSH_THEMES_PATH\hunk.omp.json' | Invoke-Expression"
 Add-Content -Path $PROFILE -value "Set-Alias open explorer.exe"
+
+Add-Content -Path $PROFILE -value "function git-status { git status }"
+Add-Content -Path $PROFILE -value "Set-Alias -Name gst -Value git-status"
+
+Add-Content -Path $PROFILE -value "function git-checkout { git checkout $args }"
+Add-Content -Path $PROFILE -value "Set-Alias -Name gco -Value git-checkout"
+
 Add-Content -Path $PROFILE -value "Set-Alias cat type"
+Add-Content -Path $PROFILE -value "Set-Alias grep findstr"
 
 Write-Host "Update Windows Terminal Config..";
 
